@@ -15,6 +15,7 @@ domready(function () {
         'ionic',
         'restangular',
         'ui.router',
+        'ngCordova',
         'Common',
         'News',
         'NavBar',

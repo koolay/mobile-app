@@ -8,6 +8,7 @@ module.exports = ['$scope', 'NewsFactory',
 
         $scope.doRefresh = function() {
             NewsFactory.skip = 0;
+            $scope.moreDataCanBeLoaded = true;
 
             NewsFactory.getNews({cache: false}).then(
                 function (result) {
@@ -20,11 +21,14 @@ module.exports = ['$scope', 'NewsFactory',
         };
 
         $scope.loadMore = function() {
-            console.log('123');
+
+            NewsFactory.skip = $scope.news.length;
+
             NewsFactory.getNews({cache: true}).then(
                 function (result) {
+                    navigator.notification.alert(navigator.connection.type);
+
                     NewsFactory.totalCount = NewsFactory.totalCount || result.count;
-                    NewsFactory.skip += result.data.length;
 
                     $scope.news = $scope.news.concat(result.data);
                     $scope.moreDataCanBeLoaded = ($scope.news.length !== NewsFactory.totalCount);

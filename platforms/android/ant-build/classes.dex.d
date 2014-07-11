@@ -39,5 +39,7 @@ d:\server\todo\platforms\android\ant-build\classes\org\apache\cordova\inappbrows
 d:\server\todo\platforms\android\ant-build\classes\org\apache\cordova\inappbrowser\InAppBrowser.class \
 d:\server\todo\platforms\android\ant-build\classes\org\apache\cordova\inappbrowser\InAppBrowserDialog.class \
 d:\server\todo\platforms\android\ant-build\classes\org\apache\cordova\inappbrowser\InAppChromeClient.class \
+d:\server\todo\platforms\android\ant-build\classes\org\apache\cordova\networkinformation\NetworkManager$1.class \
+d:\server\todo\platforms\android\ant-build\classes\org\apache\cordova\networkinformation\NetworkManager.class \
 d:\server\todo\platforms\android\ant-build\classes\org\apache\cordova\splashscreen\SplashScreen.class \
 d:\server\todo\platforms\android\ant-build\dexedLibs\classes-e1fa42524c54c7f6664fa224d7dd43c6.jar \

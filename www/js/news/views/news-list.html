@@ -5,7 +5,10 @@
                 on-refresh="doRefresh()">
         </ion-refresher>
         <ion-list>
-            <ion-item ng-repeat="new in news"
+            <ion-item collection-repeat="new in news"
+                      collection-item-width="'100%'"
+                      collection-item-height="50"
+                      style="width:100%"
                       class="item"
                       ui-sref="news-details({newsId: '{{new._id}}', title: '{{new.title}}'})">
                 {{new.title}}
@@ -15,7 +18,7 @@
                 on-infinite="loadMore()"
                 icon="ion-loading-c"
                 ng-if="moreDataCanBeLoaded"
-                distance="11%">
+                distance="10%">
         </ion-infinite-scroll>
     </ion-content>
 </ion-view>

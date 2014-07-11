@@ -93,6 +93,7 @@ d:\server\todo\platforms\android\assets\www\js\news\views\news-list.html \
 d:\server\todo\platforms\android\assets\www\lib\ionic \
 d:\server\todo\platforms\android\assets\www\lib\ionic__ \
 d:\server\todo\platforms\android\assets\www\lib\lodash.min.js \
+d:\server\todo\platforms\android\assets\www\lib\ng-cordova.min.js \
 d:\server\todo\platforms\android\assets\www\lib\restangular.min.js \
 d:\server\todo\platforms\android\assets\www\lib\ionic\css \
 d:\server\todo\platforms\android\assets\www\lib\ionic\fonts \
@@ -231,6 +232,7 @@ d:\server\todo\platforms\android\assets\www\lib\ionic__\scss\ionicons\_ionicons-
 d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.device \
 d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.dialogs \
 d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.inappbrowser \
+d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.network-information \
 d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.splashscreen \
 d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.device\www \
 d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.device\www\device.js \
@@ -240,6 +242,9 @@ d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.dialogs\w
 d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.dialogs\www\android\notification.js \
 d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.inappbrowser\www \
 d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.inappbrowser\www\inappbrowser.js \
+d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.network-information\www \
+d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.network-information\www\Connection.js \
+d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.network-information\www\network.js \
 d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.splashscreen\www \
 d:\server\todo\platforms\android\assets\www\plugins\org.apache.cordova.splashscreen\www\splashscreen.js \
 d:\server\todo\platforms\android\ant-build\AndroidManifest.xml \
