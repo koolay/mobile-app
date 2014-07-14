@@ -1,10 +1,12 @@
 'use strict';
 
-module.exports = ['$scope', 'NewsFactory',
-    function ($scope, NewsFactory) {
+module.exports = ['$scope', 'NewsFactory', 'Loading',
+    function ($scope, NewsFactory, Loading) {
         $scope.news = [];
 
         $scope.moreDataCanBeLoaded = true;
+
+        $scope.$broadcast('scroll.infiniteScrollComplete');
 
         $scope.doRefresh = function() {
             NewsFactory.skip = 0;
@@ -16,17 +18,20 @@ module.exports = ['$scope', 'NewsFactory',
 
                     $scope.news = result.data;
                     $scope.$broadcast('scroll.refreshComplete');
+                },
+                function(err) {
+                    if(err.config.timeout) {
+                        $scope.$broadcast('scroll.infiniteScrollComplete');
+                    }
                 }
             );
         };
 
         $scope.loadMore = function() {
-
             NewsFactory.skip = $scope.news.length;
 
             NewsFactory.getNews({cache: true}).then(
                 function (result) {
-                    navigator.notification.alert(navigator.connection.type);
 
                     NewsFactory.totalCount = NewsFactory.totalCount || result.count;
 
@@ -34,6 +39,11 @@ module.exports = ['$scope', 'NewsFactory',
                     $scope.moreDataCanBeLoaded = ($scope.news.length !== NewsFactory.totalCount);
 
                     $scope.$broadcast('scroll.infiniteScrollComplete');
+                },
+                function(err) {
+                    if(err.config.timeout) {
+                        $scope.$broadcast('scroll.infiniteScrollComplete');
+                    }
                 }
             );
         };

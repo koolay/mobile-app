@@ -15,17 +15,25 @@ domready(function () {
         'ionic',
         'restangular',
         'ui.router',
-        'ngCordova',
         'Common',
         'News',
         'NavBar',
         'LeftMenu'
     ])
         .config(require('./app-config'))
-        .run(['$ionicPlatform', function($ionicPlatform) {
+        .run(['$ionicPlatform', '$ionicPopup', function($ionicPlatform, $ionicPopup) {
             $ionicPlatform.ready(function () {
                 if (navigator.splashscreen) {
                     navigator.splashscreen.hide();
+
+                    if(window.Connection) {
+                        if(navigator.connection.type == Connection.NONE) {
+                            $ionicPopup.alert({
+                                title: 'Проблемы с интернетом',
+                                content: 'Интернет выключен на вашем устройстве'
+                            });
+                        }
+                    }
                 }
             });
         }]);

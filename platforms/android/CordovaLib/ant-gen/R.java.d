@@ -1,1 +1,1 @@
- : D:\server\todo\platforms\android\CordovaLib\ant-build\AndroidManifest.xml \
+ : D:\www\dinamo-app\platforms\android\CordovaLib\ant-build\AndroidManifest.xml \

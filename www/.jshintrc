@@ -67,5 +67,5 @@
     "worker": false,
     "wsh": false,
     "yui": false,
-    "predef": ["require", "define", "describe", "it", "xdescribe", "xit", "before", "beforeEach", "after", "afterEach", "expect", "sinon", "inject"]
+    "predef": ["require", "define", "describe", "it", "xdescribe", "xit", "before", "beforeEach", "after", "afterEach", "expect", "sinon", "inject", "$scope"]
 }

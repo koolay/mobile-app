@@ -1,2 +1,2 @@
-d:\server\todo\platforms\android\ant-build\AndroidManifest.xml : \
-d:\server\todo\platforms\android\AndroidManifest.xml \
+D:\www\dinamo-app\platforms\android\ant-build\AndroidManifest.xml : \
+D:\www\dinamo-app\platforms\android\AndroidManifest.xml \

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = ['RequestFactory', '$q', 'Cache',
+module.exports = ['RequestFactory',
     function (RequestFactory) {
         var news = [];
 

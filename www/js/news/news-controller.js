@@ -16,12 +16,16 @@ module.exports = ['$scope', 'NewsFactory',
 
                     $scope.news = result.data;
                     $scope.$broadcast('scroll.refreshComplete');
+                },
+                function(err) {
+                    if(err.config.timeout) {
+                        $scope.$broadcast('scroll.infiniteScrollComplete');
+                    }
                 }
             );
         };
 
         $scope.loadMore = function() {
-
             NewsFactory.skip = $scope.news.length;
 
             NewsFactory.getNews({cache: true}).then(
@@ -33,6 +37,11 @@ module.exports = ['$scope', 'NewsFactory',
                     $scope.moreDataCanBeLoaded = ($scope.news.length !== NewsFactory.totalCount);
 
                     $scope.$broadcast('scroll.infiniteScrollComplete');
+                },
+                function(err) {
+                    if(err.config.timeout) {
+                        $scope.$broadcast('scroll.infiniteScrollComplete');
+                    }
                 }
             );
         };
