@@ -1,6 +1,6 @@
 {
   "name": "dinamo-api",
-  "version": "0.1.0-6",
+  "version": "0.1.0-7",
   "description": "dinamo RESTful API",
   "main": "worker.js",
   "private": true,

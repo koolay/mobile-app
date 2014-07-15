@@ -4,6 +4,10 @@ var mongoose = require('mongoose'),
     validator = require('validator');
 
 var schema = new mongoose.Schema({
+    id: {
+        type: Number,
+        required: true
+    },
     title: {
         type: String,
         required: true
@@ -11,7 +15,7 @@ var schema = new mongoose.Schema({
 
     content: {
         type: String,
-        required: true
+        required: false
     },
 
     url: {
