@@ -2,6 +2,7 @@
 
 module.exports = ['$scope', 'NewsFactory', '$stateParams', 'Loading',
     function ($scope, NewsFactory, $stateParams, Loading) {
+
         $scope.title = $stateParams.title;
 
         Loading.show();

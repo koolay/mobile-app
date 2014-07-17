@@ -7,19 +7,21 @@ var request = require('request'),
 
 exports.getNews = function(done) {
 
-    var compare;
+    var result = [],
+        limit = 50,
+        compare;
 
     async.parallel({
             newsList: function(callback){
                 newsModel.getList({
                     skip: 0,
-                    limit: 10,
+                    limit: limit,
                     fields: 'id'
                 }, callback);
             },
             dinamoNewsList: function(callback){
                 request({
-                    url: 'http://hcdinamo.by/api/get_category_posts/?count=50&page=1&id=5&include=id,title,url,modified,content',
+                    url: 'http://hcdinamo.by/api/get_category_posts/?count='+ limit +'&page=1&id=5&include=id,title,url,modified,content',
                     method: 'GET',
                     jar: false,
                     pool: false,
@@ -36,15 +38,19 @@ exports.getNews = function(done) {
 
             if(results.dinamoNewsList.status === 'ok') {
                 async.eachSeries(results.dinamoNewsList.posts, function(post, next) {
+
                     compare = _.find(results.newsList.data, { 'id': post.id });
                     if(!compare) {
+                        console.log(post.id + '-----' + post.title)
+                        result.push(post);
                         return newsModel.addItem(post, next);
                     }
 
                     return next();
 
                 }, function(err) {
-                    return done(err, results.dinamoNewsList.posts);
+                    console.log('---');
+                    return done(err, result);
                 });
             }
         });

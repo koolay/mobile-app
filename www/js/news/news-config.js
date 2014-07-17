@@ -10,7 +10,7 @@ module.exports = ['$stateProvider',
                 controller: 'NewsController'
             })
             .state('news-details', {
-                url: '/news/:newsId/:title',
+                url: '/news/:newsId',
                 template: require('./views/news-item.html'),
                 controller: 'NewsItemController'
             });
