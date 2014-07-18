@@ -41,7 +41,6 @@ exports.getNews = function(done) {
 
                     compare = _.find(results.newsList.data, { 'id': post.id });
                     if(!compare) {
-                        console.log(post.id + '-----' + post.title)
                         result.push(post);
                         return newsModel.addItem(post, next);
                     }
@@ -49,7 +48,6 @@ exports.getNews = function(done) {
                     return next();
 
                 }, function(err) {
-                    console.log('---');
                     return done(err, result);
                 });
             }
