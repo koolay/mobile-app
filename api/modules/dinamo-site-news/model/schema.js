@@ -23,7 +23,7 @@ var schema = new mongoose.Schema({
         required: true
     },
 
-    modified: {
+    date: {
         type: Date,
         required: true
     }

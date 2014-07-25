@@ -1,14 +1,29 @@
 'use strict';
+var _ = require('lodash');
 
-module.exports = ['$scope', 'NewsFactory',
-    function ($scope, NewsFactory) {
+module.exports = ['$scope', 'NewsFactory', '$cacheFactory', 'LocalStorage',
+    function ($scope, NewsFactory, $cacheFactory, LocalStorage) {
         $scope.news = [];
 
         $scope.moreDataCanBeLoaded = true;
 
+        var viewedNews = LocalStorage.getArray('viewed_news');
+        console.log(viewedNews)
+
+        //LocalStorage.clear()
+        $scope.isNew = function(itemId) {
+            if(_.indexOf(viewedNews, itemId) == -1) {
+                console.log(itemId)
+                return true;
+            }
+
+            return false;
+        };
+
         $scope.doRefresh = function() {
             NewsFactory.skip = 0;
             $scope.moreDataCanBeLoaded = true;
+            $cacheFactory.get('$http').removeAll();
 
             NewsFactory.getNews({cache: false}).then(
                 function (result) {

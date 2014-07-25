@@ -5,7 +5,9 @@ var router = require('express').Router(),
 
 router.route('/news')
     .get(function(req, res) {
-        controller.getNews(function(err, result) {
+        var limit = req.query.limit;
+
+        controller.getNews({limit: limit}, function(err, result) {
             return res.success(result);
         });
     });

@@ -18,7 +18,7 @@
          to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.
     -->
     <preference name="BackupWebStorage" value="none" />
-	<preference name="splashscreen" value="icon" />
+	<preference name="splashscreen" value="screen" />
 	<preference name="splashScreenDelay" value="10000" />
 
 

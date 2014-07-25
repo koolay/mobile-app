@@ -8,3 +8,7 @@
 #news-item-content {
     padding:5px;
 }
+
+#news-list .new {
+    font-weight: bold;
+}

@@ -8,7 +8,7 @@ router.route('/news')
         controller.getNews({
             skip: req.query.skip || 0,
             limit: req.query.limit || 10,
-            sort: req.query.sort || {'modified': -1},
+            sort: req.query.sort || {'date': -1},
             query: req.query.query || null,
             filter: req.query.filter || {},
             fields: req.query.fields || '_id, title'

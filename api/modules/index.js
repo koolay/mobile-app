@@ -16,8 +16,10 @@ exports.init = function(app) {
     var agenda = new Agenda({db: { address: 'mongodb://'+ userCred + config.mongodb.host +'/' + config.mongodb.db}});
 
     agenda.define('get new from dinamo minsk', function(job, done) {
-        newsController.getNews(done);
-        console.log('got DATA');
+        newsController.getNews({}, function(err, result) {
+            result && console.log('got DATA:' + result.length);
+            return done(err, result);
+        });
     });
 
     agenda.every('5 minutes', 'get new from dinamo minsk');

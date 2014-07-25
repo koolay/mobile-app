@@ -2,26 +2,17 @@
 
 var request = require('request'),
     async = require('async'),
-    newsModel = require('../model'),
-    _ = require('lodash');
+    newsModel = require('../model');
 
-exports.getNews = function(done) {
+exports.getNews = function(params, done) {
 
     var result = [],
-        limit = 50,
-        compare;
+        limit = params.limit || 50;
 
     async.parallel({
-            newsList: function(callback){
-                newsModel.getList({
-                    skip: 0,
-                    limit: limit,
-                    fields: 'id'
-                }, callback);
-            },
             dinamoNewsList: function(callback){
                 request({
-                    url: 'http://hcdinamo.by/api/get_category_posts/?count='+ limit +'&page=1&id=5&include=id,title,url,modified,content',
+                    url: 'http://hcdinamo.by/api/get_category_posts/?count='+ limit +'&page=1&id=5&include=id,title,url,date,content',
                     method: 'GET',
                     jar: false,
                     pool: false,
@@ -38,14 +29,18 @@ exports.getNews = function(done) {
 
             if(results.dinamoNewsList.status === 'ok') {
                 async.eachSeries(results.dinamoNewsList.posts, function(post, next) {
+                    newsModel.getItem({
+                        args: {
+                            id: post.id
+                        }
+                    }, function(err, data) {
+                        if(!data) {
+                            result.push(post);
+                            return newsModel.addItem(post, next);
+                        }
 
-                    compare = _.find(results.newsList.data, { 'id': post.id });
-                    if(!compare) {
-                        result.push(post);
-                        return newsModel.addItem(post, next);
-                    }
-
-                    return next();
+                        return next();
+                    });
 
                 }, function(err) {
                     return done(err, result);

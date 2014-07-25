@@ -4,12 +4,13 @@
                 pulling-text="Отпусти для обновления"
                 on-refresh="doRefresh()">
         </ion-refresher>
-        <ion-list>
+        <ion-list id="news-list">
             <ion-item collection-repeat="new in news"
                       collection-item-width="'100%'"
                       collection-item-height="50"
                       style="width:100%"
                       class="item"
+                      ng-class="{new: isNew(new._id)}"
                       ui-sref="news-details({newsId: '{{new._id}}'})">
                 {{new.title}}
             </ion-item>
